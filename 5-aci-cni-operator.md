@@ -123,4 +123,4 @@ Back in ACI, we can see that the new EPGs have been created and the application 
 
 ![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci18.png)
 
-![](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci19.png)
+![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci19.png)

@@ -29,32 +29,32 @@ As first step, we ran the integration script, called *acc-provisioning* and down
 
 First of all, a *tenant* is created for your cluster: 
 
-![](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci1.png)
+![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci1.png)
 
 For this tenant, in our example *emear_pvt*, the acc_provisioning also created application profiles, EPGs, contracts and all required 'wiring' to make the integration work:
 
-![](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci2.png)
+![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci2.png)
 
 Kube-nodes is the EPG where all Kubernetes nodes will be placed. You will be able to see the EP name, as well as MAC, IP, Encapsulation, etc.
 All pods created in this Kubernetes/Openshift cluster, except system pods, will go by default in the kube-default EPG, implementing cluster-isolation:
 
-![](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci3.png)
+![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci3.png)
 
 For container workloads, ACI performs hardware Load Balancing (L4) for Kubernetes 'Load Balancing' services leveraging Policy Based Redirect.
 You can see the "devices" to balance in the *common* tenant -> Services -> L4/L7 -> Devices:
 
-![](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci4.png)
+![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci4.png)
 
 Let's move to Virtual Networking, where we are able to have full visibility of the objects and applications running inside the Kubernetes or Openshift cluster.
 In the container domains, pick your kubernetes or Openshift cluster and drill down. You can see the nodes, namespaces, services, pods, etc. By clicking one of the objects, you can see its details. In this example, you can see the details of a pod discovered as an ACI endpoint, its IP, name, encapsulation, etc.
 
 
-![](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci5.png)
+![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci5.png)
 
 
 Clicking on a service, you can see how inbound traffic is balanced:
 
-![](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci6.png)
+![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci6.png)
 
 Let's move to Kubernetes and inspect our application.
 Our sample application has multiple components: a frontend UI and a few backend services. While it's not important to understand how the application works behind the scenes, it's important to highlight that each component is represented by a Kubernetes deployment which creates a replicaset. Each replicaset is responsible to run a number of pods and reconciliate when the DESIRED state is different than the AVAILABLE pods:
