@@ -1,1 +1,0 @@
-# ACI Containers Session Walkthrough
