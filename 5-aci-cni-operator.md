@@ -121,6 +121,6 @@ application-backend-5d756ff594-jgzc7   1/1     Running   0          44s
 
 Back in ACI, we can see that the new EPGs have been created and the application PODs belong to the right EPGs:
 
-![](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci18.png)
+![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci18.png)
 
 ![](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci19.png)
