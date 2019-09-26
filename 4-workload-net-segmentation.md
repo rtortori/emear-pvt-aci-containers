@@ -65,5 +65,4 @@ To recap, to move Kubernetes PODs to specific EPGs you need to:
 
 What if I want this process to be completely automated?
 
-<br>
 Next: [ACI-CNI Operator](https://github.com/rtortori/emear-pvt-aci-containers/blob/master/5-aci-cni-operator.md)

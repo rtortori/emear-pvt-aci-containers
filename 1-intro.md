@@ -15,6 +15,5 @@
 
 ...
 
-<br>
 Next: [Explore the environment](https://github.com/rtortori/emear-pvt-aci-containers/blob/master/2-environment.md)
 

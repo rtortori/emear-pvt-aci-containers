@@ -104,5 +104,4 @@ We see in ACI we are now only forwarding traffic to the worker nodes where that 
 
 ![](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci13.png)
 
-<br>
 Next: [Workload Network Segmentation](https://github.com/rtortori/emear-pvt-aci-containers/blob/master/4-workload-net-segmentation.md)
