@@ -64,6 +64,6 @@ To recap, to move Kubernetes PODs to specific EPGs you need to:
 1. Create EPG and contracts in APIC for your tenant in the kubernetes application profile, mapped to the right VMM domain and bridge domain 
 2. Annotate deployments or namespace in kubernetes either using kubectl to annotate or leveraging the acikubectl utility which gets automatically installed when you configure ACI integration
 
-What if I want this process to be completely automated?
+What if I want this process to be completely automated? Let's discuss Kubernetes network policies for a moment, we'll then discuss automation.
 
-Next: [ACI-CNI Operator](https://github.com/rtortori/emear-pvt-aci-containers/blob/master/5-aci-cni-operator.md)
+Next: [Kubernetes Network policies in ACI](https://github.com/rtortori/emear-pvt-aci-containers/blob/master/5-network-policies.md)

@@ -6,4 +6,7 @@
 2. [Environment](https://github.com/rtortori/emear-pvt-aci-containers/blob/master/2-environment.md)
 3. [ACI as Load Balancer for Kubernetes External Services](https://github.com/rtortori/emear-pvt-aci-containers/blob/master/3-load-balancing-ext-kube-services.md)
 4. [Workload Network Segmentation](https://github.com/rtortori/emear-pvt-aci-containers/blob/master/4-workload-net-segmentation.md)
-5. [ACI-CNI Operator](https://github.com/rtortori/emear-pvt-aci-containers/blob/master/1-intro.md) 
+5. [Kubernetes Network Policies in ACI](https://github.com/rtortori/emear-pvt-aci-containers/blob/master/5-network-policies.md)
+5. [ACI-CNI Operator](https://github.com/rtortori/emear-pvt-aci-containers/blob/master/6-aci-cni-operator.md) 
+
+TODO: DevNet sandbox links

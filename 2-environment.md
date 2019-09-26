@@ -10,7 +10,7 @@
 
 ##### Kubernetes
 
-Our Kubernetes cluster is made of 4 nodes, 3 of them are worker nodes which means this is where my containerized applications will run:
+Our Kubernetes cluster is made of 4 nodes, 3 of them are [worker](https://kubernetes.io/docs/concepts/architecture/nodes/) nodes which means this is where my containerized applications will run:
 
 ```bash
 ➜  ~ > kubectl get nodes -o wide
@@ -23,7 +23,7 @@ emear-pvt-workere7f910225b   Ready    <none>   2d21h   v1.12.7   169.254.9.50   
 
 ##### Cisco ACI
 
-We integrated our Kubernetes cluster version 1.12 with an existing fabric in our lab, running Cisco ACI 4.1 software. This is the [compatibility matrix](), in case you are interested to understand if your Kubernetes cluster and Cisco ACI fabric are ready for the integration.
+We integrated our Kubernetes cluster version 1.12 with an existing fabric in our lab, running Cisco ACI 4.1 software. This is the [compatibility matrix](https://www.cisco.com/c/dam/en/us/td/docs/Website/datacenter/aci/virtualization/matrix/virtmatrix.html), in case you are interested to understand if your Kubernetes cluster and Cisco ACI fabric are ready for the integration.
 
 As first step, we ran the integration script, called *acc-provisioning* and downloadable from [software.cisco.com](https://software.cisco.com) which created a number of objects in APIC. Let's have a look.
 
@@ -46,7 +46,7 @@ You can see the "devices" to balance in the *common* tenant -> Services -> L4/L7
 ![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci4.png)
 
 Let's move to Virtual Networking, where we are able to have full visibility of the objects and applications running inside the Kubernetes or Openshift cluster.
-In the container domains, pick your kubernetes or Openshift cluster and drill down. You can see the nodes, namespaces, services, pods, etc. By clicking one of the objects, you can see its details. In this example, you can see the details of a pod discovered as an ACI endpoint, its IP, name, encapsulation, etc.
+In the container domains, pick your kubernetes or Openshift cluster and drill down. You can see the [nodes](https://kubernetes.io/docs/concepts/architecture/nodes/), [namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/), [services](https://kubernetes.io/docs/concepts/services-networking/service/), [pods](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/), etc. By clicking one of the objects, you can see its details. In this example, you can see the details of a pod discovered as an ACI endpoint, its IP, name, encapsulation, etc.
 
 
 ![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci5.png)
@@ -57,7 +57,7 @@ Clicking on a service, you can see how inbound traffic is balanced:
 ![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci6.png)
 
 Let's move to Kubernetes and inspect our application.
-Our sample application has multiple components: a frontend UI and a few backend services. While it's not important to understand how the application works behind the scenes, it's important to highlight that each component is represented by a Kubernetes deployment which creates a replicaset. Each replicaset is responsible to run a number of pods and reconciliate when the DESIRED state is different than the AVAILABLE pods:
+Our sample application has multiple components: a frontend UI and a few backend services. While it's not important to understand how the application works behind the scenes, it's important to highlight that each component is represented by a Kubernetes [deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) which creates a [replicaset](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/). Each replicaset is responsible to run a number of pods and [reconciliate](https://speakerdeck.com/thockin/kubernetes-what-is-reconciliation) when the DESIRED state is different than the AVAILABLE pods:
 
 ```bash
 ➜  ~ > kubectl get deployments
@@ -70,8 +70,8 @@ myhero-ui      2         2         2            2           22h
 nginx          1         1         1            1           22h
 ```
 
-As said, the UI and the backend deployments have multiple replicas (==pods). We can see those replicas have been scheduled and run on multiple worker nodes.
-We also see that each POD have a a unique IP assigned, out of a pool that is assigned by the CNI, in this case 1.5.0.0/16:
+As said, the UI and the backend deployments have multiple replicas (pods). We can see those replicas have been scheduled and run on multiple worker nodes.
+We also see that each POD have a a unique IP assigned, out of a pool that is assigned by the [CNI](https://kubernetes.io/docs/concepts/cluster-administration/networking/), in this case 1.5.0.0/16:
 
 ```bash
 ➜  ~ > kubectl get pods -o wide
@@ -87,7 +87,7 @@ myhero-ui-699645fd79-qrjrb      1/1     Running   0          22h   1.5.0.83    e
 nginx-dbddb74b8-dmz5k           1/1     Running   0          22h   1.5.0.80    emear-pvt-workere7f910225b   <none>
 ```
 
-Those IPs are in the same network, how are these PODs communicating with each other if they live in different hosts? How external users are going to reach them? The CNI takes care of this aspects. Some CNIs use VXLAN to encapsulate POD traffic across the worker nodes, others may use different approaches, for instance VLAN or untagged traffic.
+Those IPs are in the same network, how are these PODs communicating with each other if they live in different hosts? How external users are going to reach them? The CNI takes care of this aspects. Some CNIs use [VXLAN](https://en.wikipedia.org/wiki/Virtual_Extensible_LAN) to encapsulate POD traffic across the worker nodes, others may use different approaches, for instance VLAN or untagged traffic.
 In case of ACI-CNI, the ACI fabric is responsible for the forwarding.
 
 You can check the POD CIDR pool as well as the ACI configuration in Kubernetes here:
@@ -119,7 +119,7 @@ You can check the POD CIDR pool as well as the ACI configuration in Kubernetes h
 }
 ```
 
-The output you've seen is an excerpt of a 'configmap', which is mounted by the ACI-CNI containers as a volume. The configmap has been generated by the acc-provisioning tool, which configured APIC accordingly, based on use inputs during the integration installation process.
+The output you've seen is an excerpt of a [configmap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/), which is mounted by the ACI-CNI containers as a [volume](https://kubernetes.io/docs/concepts/storage/volumes/). The configmap has been generated by the *acc-provisioning* tool, which configured APIC accordingly, based on use inputs during the integration installation process.
 
 
 Next: [ACI as Load Balancer for Kubernetes External Services](3-load-balancing-ext-kube-services.md)

@@ -75,15 +75,15 @@ Services. In this case we focus to the UI service:
 
 ![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci9.png)
 
-Let's check how this Load Balancer service is exposed by ACI. This configuration is under the 'common' tenant. We go under 'Networking' -> 'External Routed Networks' -> Your L3 out network -> Networks and we see our Load Balancer 192.168.163.132 service IP address as seen in Kubernetes.
+Let's check how this Load Balancer service is exposed by ACI. This configuration is under the 'common' tenant. We go under 'Networking' -> 'External Routed Networks' -> Your L3 out network -> Networks and we finally get our Load Balancer 192.168.163.132 service IP address as seen in Kubernetes.
 
 ![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci10.png)
 
-Under 'Policies' -> 'Protocol' -> 'L4-L7 Policy-Based Redirect', we see two IP addresses being balanced, in our case 2.3.0.4 and 2.3.0.5. Note that those are not actual IP address but just a ....???
+Under 'Policies' -> 'Protocol' -> 'L4-L7 Policy-Based Redirect', we see two IP addresses being balanced, in our case 2.3.0.4 and 2.3.0.5. Note that those are not actual IP address <b>but just... </b>
 
 ![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci11.png)
 
-Let's scale this application tier and see how ACI is starting to Load Balance to additional nodes:
+Let's [scale](https://kubernetes.io/docs/tutorials/kubernetes-basics/scale/scale-intro/) this application tier and see how ACI is starting to Load Balance to additional nodes:
 
 ```bash
 ➜  ~ > kubectl scale deployment myhero-ui --replicas 10
