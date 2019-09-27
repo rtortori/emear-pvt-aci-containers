@@ -9,4 +9,12 @@
 5. [Kubernetes Network Policies in ACI](https://github.com/rtortori/emear-pvt-aci-containers/blob/master/5-network-policies.md)
 5. [ACI-CNI Operator](https://github.com/rtortori/emear-pvt-aci-containers/blob/master/6-aci-cni-operator.md) 
 
-TODO: DevNet sandbox links
+This demo walkthrough is largely inspired to the Cisco DevNet [ACI and Kubernetes](https://developer.cisco.com/docs/sandbox/#!data-center) sandbox, which offers three different learning paths and eight labs in a dedicated environment:
+
+- Option 1: Detailed Learning Lab Walkthrough of Installation, Integration, and Application Deployment (3+ hours of content)
+
+- Option 2: Follow the Quick Start Guide for details on the key steps in installing Kubernetes and the ACI CNI plug-in (about 30 minutes to working cluster)
+
+- Option 3: Run the "auto-deploy" script to prepare and install Kubernetes and the ACI CNI plug-in and immediately have a working cluster. (8 minutes to working cluster)
+
+![DevNet sandbox](images/sandbox.png)
