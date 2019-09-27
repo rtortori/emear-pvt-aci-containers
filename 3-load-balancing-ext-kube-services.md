@@ -79,7 +79,7 @@ Let's check how this Load Balancer service is exposed by ACI. This configuration
 
 ![image](images/aci10.png)
 
-Under 'Policies' -> 'Protocol' -> 'L4-L7 Policy-Based Redirect', we see two IP addresses being balanced, in our case 2.3.0.4 and 2.3.0.5. Note that those are not actual IP address <b>but just... </b>
+Under 'Policies' -> 'Protocol' -> 'L4-L7 Policy-Based Redirect', we see two IP addresses being balanced, in our case 2.3.0.4 and 2.3.0.5. Those IPs are part of the *node\_svc\_subnet* specified during the integration installation process. When this packets hit the [Open vSwitch](https://www.openvswitch.org/) instance in the worker node, it will NAT the destination address to an available POD for the service.
 
 ![image](images/aci11.png)
 

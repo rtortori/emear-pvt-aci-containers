@@ -4,7 +4,7 @@
 
 ### Kubernetes Network Policies in ACI
 
-Let's assume our corporate policies mandate that each application needs to run in a dedicated namespace where only application owners have access and that each namespace must be mapped to one EPG.
+Let's assume our corporate policies mandate that each application needs to run in a dedicated namespace where only application owners have access and that each namespace must be mapped to its EPG.
 
 This is exacly what we've done in the previous step: the network team enforced this behavior and now they need to create contracts to allow cross-application network communication.
 

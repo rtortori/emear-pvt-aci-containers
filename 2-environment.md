@@ -4,10 +4,6 @@
 
 ### Environment
 
-##### Sample Application
-
-...
-
 ##### Kubernetes
 
 Our Kubernetes cluster is made of 4 nodes, 3 of them are [worker](https://kubernetes.io/docs/concepts/architecture/nodes/) nodes which means this is where my containerized applications will run:
@@ -25,7 +21,7 @@ emear-pvt-workere7f910225b   Ready    <none>   2d21h   v1.12.7   169.254.9.50   
 
 We integrated our Kubernetes cluster version 1.12 with an existing fabric in our lab, running Cisco ACI 4.1 software. This is the [compatibility matrix](https://www.cisco.com/c/dam/en/us/td/docs/Website/datacenter/aci/virtualization/matrix/virtmatrix.html), in case you are interested to understand if your Kubernetes cluster and Cisco ACI fabric are ready for the integration.
 
-As first step, we ran the integration script, called *acc-provisioning* and downloadable from [software.cisco.com](https://software.cisco.com) which created a number of objects in APIC. Let's have a look.
+As first step, we download the *acc-provisioning* from [software.cisco.com](https://software.cisco.com) and execute it. It will create a number of objects in APIC. Let's have a look.
 
 First of all, a *tenant* is created for your cluster: 
 
