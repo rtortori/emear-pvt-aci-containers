@@ -9,7 +9,7 @@
 5. [Kubernetes Network Policies in ACI](https://github.com/rtortori/emear-pvt-aci-containers/blob/master/5-network-policies.md)
 5. [ACI-CNI Operator](https://github.com/rtortori/emear-pvt-aci-containers/blob/master/6-aci-cni-operator.md) 
 
-This demo walkthrough is largely inspired to the Cisco DevNet [ACI and Kubernetes](https://developer.cisco.com/docs/sandbox/#!data-center) sandbox, which offers three different learning paths and eight labs in a dedicated environment:
+This demo walkthrough is largely inspired to the Cisco DevNet [ACI and Kubernetes](https://developer.cisco.com/docs/sandbox/#!data-center) sandbox, which offers three different learning paths and eight labs in a dedicated environment you can use at your convenience:
 
 - Option 1: Detailed Learning Lab Walkthrough of Installation, Integration, and Application Deployment (3+ hours of content)
 
