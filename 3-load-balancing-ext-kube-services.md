@@ -55,33 +55,33 @@ myhero-ui-699645fd79-qrjrb   1/1     Running   0          24h
 
 Let's connect to My Hero (http://192.168.163.132):
 
-![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/myhero1.png)
+![image](images/myhero1.png)
 
 Let's vote for Spidey and see what happens (we already voted in this specific example):
 
-![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/myhero2.png)
+![image](images/myhero2.png)
 
 All application tiers work just fine, let's move to ACI and see how the Kubernetes objects we inspected a minute ago appear in APIC as they are seen by the networking team.
 
 Deployments:
 
-![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci7.png)
+![image](images/aci7.png)
 
 Pods:
 
-![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci8.png)
+![image](images/aci8.png)
 
 Services. In this case we focus to the UI service:
 
-![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci9.png)
+![image](images/aci9.png)
 
 Let's check how this Load Balancer service is exposed by ACI. This configuration is under the 'common' tenant. We go under 'Networking' -> 'External Routed Networks' -> Your L3 out network -> Networks and we finally get our Load Balancer 192.168.163.132 service IP address as seen in Kubernetes.
 
-![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci10.png)
+![image](images/aci10.png)
 
 Under 'Policies' -> 'Protocol' -> 'L4-L7 Policy-Based Redirect', we see two IP addresses being balanced, in our case 2.3.0.4 and 2.3.0.5. Note that those are not actual IP address <b>but just... </b>
 
-![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci11.png)
+![image](images/aci11.png)
 
 Let's [scale](https://kubernetes.io/docs/tutorials/kubernetes-basics/scale/scale-intro/) this application tier and see how ACI is starting to Load Balance to additional nodes:
 
@@ -92,7 +92,7 @@ deployment.extensions/myhero-ui scaled
 
 APIC view:
 
-![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci12.png)
+![image](images/aci12.png)
 
 Scaling down back to 1 replica:
 
@@ -103,6 +103,6 @@ deployment.extensions/myhero-ui scaled
 
 We see in ACI we are now only forwarding traffic to the worker nodes where that single POD is running:
 
-![image](https://raw.githubusercontent.com/rtortori/emear-pvt-aci-containers/master/images/aci13.png)
+![image](images/aci13.png)
 
 Next: [Workload Network Segmentation](https://github.com/rtortori/emear-pvt-aci-containers/blob/master/4-workload-net-segmentation.md)
