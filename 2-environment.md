@@ -83,7 +83,7 @@ myhero-ui-699645fd79-qrjrb      1/1     Running   0          22h   1.5.0.83    e
 nginx-dbddb74b8-dmz5k           1/1     Running   0          22h   1.5.0.80    emear-pvt-workere7f910225b   <none>
 ```
 
-Those IPs are in the same network, how are these PODs communicating with each other if they live in different hosts? How external users are going to reach them? The CNI takes care of this aspects. Some CNIs use [VXLAN](https://en.wikipedia.org/wiki/Virtual_Extensible_LAN) to encapsulate POD traffic across the worker nodes, others may use different approaches, for instance VLAN or untagged traffic.
+Those IPs are in the same network, how are these PODs communicating with each other if they live in different hosts? How external users are going to reach them? The CNI plugin takes care of this aspects. Some CNI plugins use [VXLAN](https://en.wikipedia.org/wiki/Virtual_Extensible_LAN) to encapsulate POD traffic across the worker nodes, others may use different approaches, for instance VLAN or untagged traffic.
 In case of ACI-CNI, the ACI fabric is responsible for the forwarding.
 
 You can check the POD CIDR pool as well as the ACI configuration in Kubernetes here:
