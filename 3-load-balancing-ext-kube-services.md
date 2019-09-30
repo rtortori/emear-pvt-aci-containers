@@ -6,7 +6,7 @@
 
 The sample application we have deployed presents a UI where you can pick your favourite superhero, how can you reach the UI? 
 
-Each deployment has a corresponding service, which basically presents a virtual IP and load balance the traffic to the PODs.
+Each deployment has a corresponding service, which basically presents a virtual IP and load balances the traffic to the PODs.
 Kubernetes leverages external cloud providers to expose applications to the outside world, in case of ACI-CNI this is done by ACI through Policy Based Redirect performed in hardware. 
 
 Those kind of services in Kubernetes are named 'LoadBalancer' services:
