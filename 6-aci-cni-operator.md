@@ -4,7 +4,7 @@
 
 ### ACI CNI Operator
 
-So, what if I want the EPG creation process and annotations completely automated? There's an operator for that at https://github.com/rtortori/rmlab-aci-operator.
+So, what if I wanted the EPG creation process and annotations completely automated? There's an operator for that at https://github.com/rtortori/rmlab-aci-operator.
 
 This operator will install a CRD (Custom Resource Definition) in your Kubernetes cluster, extending its API server with a new object called 'AciNamespaces'.
 When you create a new 'AciNamespace' in Kubernetes, the following will happen:
