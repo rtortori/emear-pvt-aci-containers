@@ -4,12 +4,12 @@
 
 ### ACI CNI Operator
 
-So, what if I wanted the EPG creation process and annotations completely automated? There's an operator for that at https://github.com/rtortori/rmlab-aci-operator.
+So, what if I wanted the EPG creation process and annotations completely automated? There's a Kubernetes operator for that at https://github.com/rtortori/rmlab-aci-operator.
 
-This operator will install a CRD (Custom Resource Definition) in your Kubernetes cluster, extending its API server with a new object called 'AciNamespaces'.
-When you create a new 'AciNamespace' in Kubernetes, the following will happen:
+This operator will install a CRD (Custom Resource Definition) in your Kubernetes cluster, extending its API server with a new Kubernetes resource called 'AciNamespaces'.
+When you create a new 'AciNamespace' object in Kubernetes, the following will happen:
 
-1. Based on your resource definition, it will create an EPG in APIC that will inherit contracts from existing EPGs. The network engineers will need to create templates upfront that the kubernetes engineer can leverage
+1. Based on your resource definition, it will create an EPG in APIC that will inherit contracts from existing EPGs. Templates should be created upfront by the network admin so that the K8s operator can use them, transparently for the K8s deployer. 
 2. It will create a kubernetes namespace 
 3. It will annotate the kubernetes namespace so that it will be mapped 1:1 with the new EPG
 
